@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             const data = await response.json();
-            console.log("Server Response:", data);
 
             if (data.response) {
                 // Formatting bot response
@@ -73,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 return "No response received.";
             }
         } catch (error) {
-            console.error("Fetch Error:", error);
             return "Check your Internet Connectivity.";
         }
     }

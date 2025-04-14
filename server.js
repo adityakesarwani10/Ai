@@ -30,8 +30,6 @@ app.get("/", (req, res) => {
 
 app.post("/receive", async (req, res) => {
     try { 
-        console.log("Received Input:", req.body.userInput);
-
         const response = await ai.models.generateContent({
             model: "gemini-2.0-flash",
             contents: req.body.userInput,
@@ -45,7 +43,6 @@ app.post("/receive", async (req, res) => {
 
         // Check if response has the expected structure
         if (response && response.text) {
-            console.log("AI Response:", response.text);
             res.json({ response: response.text });
         } else {
             console.error("Unexpected response structure:", response);
