@@ -11,7 +11,13 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors()); // Allow frontend requests
+app.use(cors({
+    origin: "https://chatbot-nine-rosy-40.vercel.app",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"]
+}));
+app.options("/receive", cors()); // Preflight request handling
+   // Allow frontend requests
 app.use(express.json()); // Parse JSON data
 
 // Initialize Google AI
