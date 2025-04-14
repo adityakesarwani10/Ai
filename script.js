@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function generateResponse(input) {
         try {
-            const response = await fetch("http://localhost:5000/receive", {
+            const response = await fetch("https://ai-v050.onrender.com/receive", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ userInput: input }),
