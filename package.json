@@ -1,0 +1,27 @@
+{
+  "name": "project2",
+  "version": "1.0.0",
+  "description": "Working for new project. Making automatic UI design",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Aditya kesrwani",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^0.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "genai": "^0.0.18",
+    "gitignore": "^0.7.0",
+    "google": "^2.1.0",
+    "googleapis": "^148.0.0",
+    "mongoose": "^8.13.1",
+    "openai": "^4.90.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

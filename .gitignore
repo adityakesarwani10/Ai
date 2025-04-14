@@ -1,0 +1,17 @@
+# .gitignore
+
+node_modules/
+.vscode/
+dist/
+build/
+*.log
+*.zip
+*.rar
+*.env
+.DS_Store
+*.tar.gz
+*.bak
+*.tmp
+.idea/
+*.iml
+*.swp
