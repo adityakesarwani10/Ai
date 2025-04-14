@@ -21,7 +21,7 @@ This project is a Chatbox AI application designed to provide intelligent and int
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/adityakesarwani10/chatbox-vercel.git
+    git clone https://github.com/adityakesarwani10/Ai.git
     cd chatbox-ai
     ```
 
