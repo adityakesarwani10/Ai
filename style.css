@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(180deg, #ff04f2 0%, #0051ff 100%);
+    background: linear-gradient(-135deg,rgba(255, 4, 180, 0.68) 0%,rgba(0, 153, 255, 0.82) 100%);
     color: #fff;
     margin: 0;
     padding: 0;
@@ -20,7 +20,7 @@ body {
     padding: 20px;
     border-radius: 12px;
     backdrop-filter: blur(5px);
-    box-shadow: 0px 4px 12px rgb(0, 0, 0);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.637);
     text-align: center;
 }
 
@@ -85,7 +85,7 @@ button:hover {
     max-width: 650px;
     height: 60vh;
     overflow-y: auto;
-    background: #161B1F;
+    background: #2a3136;
     border-radius: 12px;
     padding: 15px;
     margin-top: 20px;
