@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function togglePlaceholder() {
         if (chatContainer.children.length === 0) {
-            chatContainer.setAttribute("data-placeholder", "Who can I help you...");
+            chatContainer.setAttribute("data-placeholder", "How can I help you...");
         } else {
             chatContainer.removeAttribute("data-placeholder");
         }
