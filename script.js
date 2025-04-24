@@ -3,11 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const sendButton = document.getElementById("send-btn");
     const chatContainer = document.getElementById("chat-container");
 
-    // ✅ Add event listener for "Enter" keypress
+    // Enter key event
     inputField.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
-            event.preventDefault(); // Prevent form submission
-            sendButton.click(); // Trigger button click programmatically
+            event.preventDefault();
+            sendButton.click();
         }
     });
 
@@ -16,16 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let userMessage = inputField.value.trim();
         if (userMessage === "") return;
 
-        // Append User Message (Right Side)
         appendMessage(userMessage, "user");
-
-        // Clear input field
         inputField.value = "";
 
-        // Wait for bot response
         let botResponse = await generateResponse(userMessage);
-
-        // Append Bot Message (Left Side)
         appendMessage(botResponse, "bot");
     });
 
@@ -33,17 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let messageDiv = document.createElement("div");
         messageDiv.classList.add("message", sender);
         messageDiv.innerHTML = message;
-    
-        // ✅ Add messages at the top
+
         chatContainer.prepend(messageDiv);
-    
-        // ✅ Scroll to keep the latest message at the bottom
         chatContainer.scrollTop = chatContainer.scrollHeight;
-    
-        // ✅ Hide placeholder when messages exist
         togglePlaceholder();
     }
-    
 
     async function generateResponse(input) {
         try {
@@ -56,16 +44,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const data = await response.json();
 
             if (data.response) {
-                // Formatting bot response
                 let formattedText = data.response
                     .replace(/\n/g, "<br>")
                     .replace(/([A-Z][a-z]+):/g, "<strong>$1:</strong>")
                     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
                     .replace(/\*(.*?)\*/g, "<em>$1</em>")
-                    .replace("gemini", "Aditya")
-                    .replace("Gemini", "Aditya")
-                    .replace("google", "Aditya")
-                    .replace("Google", "Aditya");
+                    .replace(/gemini/gi, "Aditya")
+                    .replace(/google/gi, "Aditya");
 
                 return formattedText;
             } else {
@@ -84,6 +69,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ✅ Call initially on page load
     togglePlaceholder();
 });
