@@ -39,13 +39,13 @@ app.post("/receive", async (req, res) => {
         // Simple keyword list for nutrition-related topics
         const nutritionKeywords = [
             'hy', 'hi', 'hello', 'hey', 'Namaste',
-          
+        
             // Basic nutrition-related terms
             'calorie', 'calories', 'protein', 'carbs', 'carbohydrates', 'fat', 'fats',
             'nutrition', 'nutrients', 'vitamin', 'vitamins', 'mineral', 'minerals',
             'diet', 'fiber', 'sugar', 'cholesterol', 'saturated fat', 'macro', 'macros',
             'healthy food', 'nutrition facts', 'nutritional value',
-          
+        
             // Conversational health-check queries
             'is apple good for health', 'apple is good for health', 'apple is good for health or not',
             'banana is good for health', 'is banana healthy', 'banana is good for health or not',
@@ -59,19 +59,40 @@ app.post("/receive", async (req, res) => {
             'is it unhealthy', 'is this healthy or not', 'is it healthy or not',
             'is this good for health', 'is this good or bad for health', 'this food is healthy or not',
             'should I eat this', 'how healthy is this', 'is it good to eat daily', 'is it safe to eat',
-          
+        
             // Dietary intent/context queries
             'how many calories in', 'macronutrients of', 'nutritional breakdown of',
             'what nutrients are in', 'carbs in', 'protein content of', 'fat content of',
             'does it have sugar', 'is it gluten free', 'is it dairy free', 'is it vegan',
-          
+        
             // Curiosity-driven questions
             'what’s in', 'nutrition info for', 'nutrition data for', 'breakdown of',
             'how healthy is', 'benefits of eating', 'should I eat',
-          
+        
             // Specific nutrient interests
             'omega 3', 'iron', 'zinc', 'calcium', 'potassium', 'sodium', 'magnesium',
-            'antioxidants', 'probiotics', 'enzymes', 'natural sugar', 'artificial sweetener'
+            'antioxidants', 'probiotics', 'enzymes', 'natural sugar', 'artificial sweetener',
+        
+            // Common food items
+            'apple', 'banana', 'orange', 'grapes', 'watermelon', 'mango', 'pineapple',
+            'papaya', 'strawberry', 'blueberry', 'cherry', 'pomegranate', 'kiwi', 'peach',
+            'plum', 'pear', 'guava', 'lemon', 'lime', 'coconut', 'avocado', 'fig', 'dates',
+        
+            'carrot', 'beetroot', 'spinach', 'broccoli', 'cauliflower', 'potato', 'tomato',
+            'onion', 'garlic', 'cabbage', 'lettuce', 'cucumber', 'peas', 'corn', 'pumpkin',
+        
+            'rice', 'wheat', 'bread', 'oats', 'quinoa', 'barley', 'millet', 'maize',
+        
+            'milk', 'curd', 'butter', 'cheese', 'paneer', 'yogurt', 'ghee',
+        
+            'egg', 'chicken', 'mutton', 'fish', 'prawns', 'salmon', 'tuna',
+        
+            'tofu', 'soy', 'soy milk', 'almond milk', 'peanut butter', 'nuts', 'almonds',
+            'cashew', 'walnut', 'pistachio', 'chia seeds', 'flaxseeds', 'sunflower seeds',
+        
+            'olive oil', 'mustard oil', 'coconut oil', 'ghee',
+        
+            'biscuit', 'chocolate', 'ice cream', 'cake', 'pastry', 'chips', 'soda', 'juice'
         ];
 
         const isNutritionRelated = nutritionKeywords.some(keyword =>
