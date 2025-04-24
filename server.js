@@ -38,10 +38,40 @@ app.post("/receive", async (req, res) => {
 
         // Simple keyword list for nutrition-related topics
         const nutritionKeywords = [
-            "calorie", "calories", "protein", "carbs", "carbohydrates", "fat", "fats",
-            "nutrition", "nutrients", "vitamin", "vitamins", "mineral", "minerals",
-            "diet", "fiber", "sugar", "cholesterol", "saturated fat", "macro", "macros",
-            "healthy food", "nutrition facts", "nutritional value"
+            'hy', 'hi', 'hello', 'hey', 'Namaste',
+          
+            // Basic nutrition-related terms
+            'calorie', 'calories', 'protein', 'carbs', 'carbohydrates', 'fat', 'fats',
+            'nutrition', 'nutrients', 'vitamin', 'vitamins', 'mineral', 'minerals',
+            'diet', 'fiber', 'sugar', 'cholesterol', 'saturated fat', 'macro', 'macros',
+            'healthy food', 'nutrition facts', 'nutritional value',
+          
+            // Conversational health-check queries
+            'is apple good for health', 'apple is good for health', 'apple is good for health or not',
+            'banana is good for health', 'is banana healthy', 'banana is good for health or not',
+            'is milk healthy', 'milk is good for health', 'milk is good for health or not',
+            'is rice good for health', 'rice is good for health', 'rice is good for health or not',
+            'is egg healthy', 'egg is good for health or not',
+            'is peanut butter good for weight gain', 'is olive oil good for heart',
+            'is avocado keto friendly', 'is watermelon low carb', 'is tofu high protein',
+            'is chicken good for diabetics', 'can I eat apple daily', 'should I avoid sugar',
+            'is this healthy', 'is this unhealthy', 'is this food healthy', 'is it healthy',
+            'is it unhealthy', 'is this healthy or not', 'is it healthy or not',
+            'is this good for health', 'is this good or bad for health', 'this food is healthy or not',
+            'should I eat this', 'how healthy is this', 'is it good to eat daily', 'is it safe to eat',
+          
+            // Dietary intent/context queries
+            'how many calories in', 'macronutrients of', 'nutritional breakdown of',
+            'what nutrients are in', 'carbs in', 'protein content of', 'fat content of',
+            'does it have sugar', 'is it gluten free', 'is it dairy free', 'is it vegan',
+          
+            // Curiosity-driven questions
+            'what’s in', 'nutrition info for', 'nutrition data for', 'breakdown of',
+            'how healthy is', 'benefits of eating', 'should I eat',
+          
+            // Specific nutrient interests
+            'omega 3', 'iron', 'zinc', 'calcium', 'potassium', 'sodium', 'magnesium',
+            'antioxidants', 'probiotics', 'enzymes', 'natural sugar', 'artificial sweetener'
         ];
 
         const isNutritionRelated = nutritionKeywords.some(keyword =>
