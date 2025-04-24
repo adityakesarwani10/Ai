@@ -10,12 +10,16 @@ dotenv.config();
 // Initialize Express app
 const app = express();
 
-// Middleware
+// Additional Middleware
 app.use(cors({
-    origin: "https://chatbot-nine-rosy-40.vercel.app",
+    origin: [
+        "https://chatbot-nine-rosy-40.vercel.app",
+    ],
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"]
 }));
+
+app.options("/receive", cors());
 app.options("/receive", cors()); // Preflight request handling
    // Allow frontend requests
 app.use(express.json()); // Parse JSON data
@@ -30,6 +34,24 @@ app.get("/", (req, res) => {
 
 app.post("/receive", async (req, res) => {
     try { 
+        const userInput = req.body.userInput;
+
+        // Simple keyword list for nutrition-related topics
+        const nutritionKeywords = [
+            "calorie", "calories", "protein", "carbs", "carbohydrates", "fat", "fats",
+            "nutrition", "nutrients", "vitamin", "vitamins", "mineral", "minerals",
+            "diet", "fiber", "sugar", "cholesterol", "saturated fat", "macro", "macros",
+            "healthy food", "nutrition facts", "nutritional value"
+        ];
+
+        const isNutritionRelated = nutritionKeywords.some(keyword =>
+            userInput.toLowerCase().includes(keyword)
+        );
+
+        if (!isNutritionRelated) {
+            return res.json({ response: "Please ask a nutrition-related question." });
+        }
+
         const response = await ai.models.generateContent({
             model: "gemini-2.0-flash",
             contents: req.body.userInput,
@@ -53,6 +75,8 @@ app.post("/receive", async (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
+
+ // Preflight request handling
 
 // Start server
 const PORT = 5000;
