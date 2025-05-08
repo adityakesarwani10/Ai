@@ -14,6 +14,7 @@ const app = express();
 app.use(cors({
     origin: [
         "https://chatbot-nine-rosy-40.vercel.app",
+        "http://localhost:3000" // Add this line
     ],
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"]
