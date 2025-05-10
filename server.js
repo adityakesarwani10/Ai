@@ -1,4 +1,4 @@
-// Import dependencies
+rp// Import dependencies
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
@@ -14,6 +14,7 @@ const app = express();
 app.use(cors({
     origin: [
         "https://chatbot-nine-rosy-40.vercel.app",
+        "https://v0-nutri-scan-plum-scanner-page.vercel.app",
         "http://localhost:3000" // Add this line
     ],
     methods: ["GET", "POST"],
